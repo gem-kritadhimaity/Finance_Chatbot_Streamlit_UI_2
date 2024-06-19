@@ -1,1 +1,4 @@
 venv
+newvenv
+
+__pycache__/

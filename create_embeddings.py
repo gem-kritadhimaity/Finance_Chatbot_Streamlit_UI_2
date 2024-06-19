@@ -6,7 +6,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 
 
-# Openai api key os line 
+#os open ai api key line 
 
 columns_to_embed = ["Company Name","Gross Profit", "Total Revenue","EBITDA","Total Expenses" ]
 columns_to_metadata = ["Company Name",	"Tax Effect Of Unusual Items"	,"Tax Rate For Calcs"	, 'Normalized EBITDA',	'Total Unusual Items'	,'Total Unusual Items Excluding Goodwill',	'Net Income From Continuing Operation', 'Net Minority Interest',	'Reconciled Depreciation'	,'Reconciled' ,"Cost Of Revenue",	"EBITDA"	,"EBIT",	"Net Interest Income"	,"Interest Expense",	"Interest Income",	"Normalized Income","Net Income From Continuing And Discontinued Operation",	"Total Expenses"	,"Total Operating Income As Reported"	,"Diluted Average Shares"	,"Basic Average Shares",	"Diluted EPS"	,"Basic EPS"	,"Diluted NI Availto Com Stockholders"	,"Net Income Common Stockholders"	,"Net Income"	,"Net Income Including Noncontrolling Interests",	"Net Income Continuous Operations"	,"Earnings From Equity Interest Net Of Tax"	,"Tax Provision",	"Pretax Income""Other Income Expense"	,"Other Non Operating Income Expenses",	"Gain On Sale Of Security",	'Net Non Operating Interest Income Expense'	,"Interest Expense Non Operating"	,"Interest Income Non Operating",	"Operating Income",	"Operating Expense",	"Other Operating Expenses"	,'Selling General And Administration'	,"Selling And Marketing Expense",	"General And Administrative Expense	Other Gand A"	,"Gross Profit"	,"Cost Of Revenue"	,"Total Revenue"	,"Operating Revenue",	"Average Dilution Earnings"	,"Total Other Finance Cost"	,"Research And Development"	,"Earnings From Equity Interest"]

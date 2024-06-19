@@ -13,23 +13,25 @@ def bot_message(message):
                 f'</div>', unsafe_allow_html=True)
     
 
-# # Function to get the bot response based on selected model
-# def get_bot_response(model, user_input):
-#     if model == "gemma-7b-it":
-#         return query(user_input, model="gemma-7b-it").replace("\n", "<br>")
-#     elif model == "mixtral-8x7b-32768":
-#         return query(user_input, model="mixtral-8x7b-32768").replace("\n", "<br>")
-#     elif model == "llama3-70b-8192":
-#         return query(user_input, model="llama3-70b-8192").replace("\n", "<br>")
-#     elif model == "llama3-8b-8192":
-#         return query(user_input, model="llama3-8b-8192").replace("\n", "<br>")
-#     else:
-#         return "Model not recognized."
+# Function to get the bot response based on selected model
+def get_bot_response(model, user_input):
+    if model == "gemma-7b-it":
+        return query(user_input, model="gemma-7b-it").replace("\n", "<br>")
+    elif model == "mixtral-8x7b-32768":
+        return query(user_input, model="mixtral-8x7b-32768").replace("\n", "<br>")
+    elif model == "llama3-70b-8192":
+        return query(user_input, model="llama3-70b-8192").replace("\n", "<br>")
+    elif model == "llama3-8b-8192":
+        return query(user_input, model="llama3-8b-8192").replace("\n", "<br>")
+    # elif model == "gpt-3.5-turbo":
+    #     return query(user_input, model="gpt-3.5-turbo").replace("\n", "<br>")
+    else:
+        return "Model not recognized."
 
 # Define the main Streamlit app
 def main(i):
     # Dropdown to select the model
-    # model = st.selectbox("Select Model", ["gemma-7b-it", "mixtral-8x7b-32768", "llama3-70b-8192","llama3-8b-8192"])
+    model = st.selectbox("Select Model", ["llama3-8b-8192","llama3-70b-8192","gemma-7b-it", "mixtral-8x7b-32768"])
 
     st.title("Financial ChatBot")
 
@@ -54,10 +56,10 @@ def main(i):
         user_message(user_input)
 
         # Bot's static response (you can replace this with a dynamic response generator)
-        bot_response = query(user_input).replace("\n", "<br>")
+        # bot_response = query(user_input).replace("\n", "<br>")
 
         # # Get the bot response based on selected model
-        # bot_response = get_bot_response(model, user_input)
+        bot_response = get_bot_response(model, user_input)
 
         # Add the bot's response to the chat history
         st.session_state.chat_history.append((bot_response, True))

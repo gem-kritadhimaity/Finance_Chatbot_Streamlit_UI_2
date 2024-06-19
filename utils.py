@@ -1,15 +1,38 @@
 import os
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
 import os
 from langchain_core.output_parsers import StrOutputParser
 
+##
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_groq import ChatGroq
 
-# open ai api key os line 
 
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+# Set the Groq API key as an environment variable
+os.environ["GROQ_API_KEY"] = "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"
+# llm = ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
 
-def generate_sql_query(query):
+
+# os.environ["OPENAI_API_KEY"] = "sk-proj-8UeTTajYhUBD8AQxAu05T3BlbkFJYdAIHWYLyENVgpOdGcaM"
+
+# llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+
+# Initialize the llm variable globally
+llm = None
+
+def generate_sql_query(query,model):
+    global llm
+    if model == 'gemma-7b-it':
+        llm = ChatGroq(temperature=0, model_name="gemma-7b-it")
+    if model == 'mixtral-8x7b-32768':
+        llm = ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
+    if model == 'llama3-70b-8192':
+        llm = ChatGroq(temperature=0, model_name="llama3-70b-8192")
+    if model == 'llama3-8b-8192':
+        llm = ChatGroq(temperature=0, model_name="llama3-8b-8192")
+    if model == 'gpt-3.5-turbo':
+        llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 
     nli_to_sql_prompt = ChatPromptTemplate.from_template(
     """
