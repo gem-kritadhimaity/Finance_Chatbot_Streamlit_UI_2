@@ -2,3 +2,5 @@ venv
 newvenv
 
 __pycache__/
+
+.env

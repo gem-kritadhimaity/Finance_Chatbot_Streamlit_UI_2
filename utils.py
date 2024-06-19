@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 # from langchain_openai import ChatOpenAI
 import os
@@ -8,7 +9,14 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 
+# Load environment variables from .env file
+load_dotenv()
 
+# Ensure that the Groq API key is set as an environment variable
+groq_api_key = os.getenv("GROQ_API_KEY")
+
+if not groq_api_key:
+    raise EnvironmentError("GROQ_API_KEY environment variable not set")
 
 
 # Initialize the llm variable globally
